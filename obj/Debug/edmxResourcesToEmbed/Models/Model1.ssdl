@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SaafCity_Database_2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Employee_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Complainnats">
+    <Key>
+      <PropertyRef Name="Complainant_Email" />
+    </Key>
+    <Property Name="Complainant_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Complainant_Name" Type="nvarchar" MaxLength="256" />
+    <Property Name="Complainant_Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Complainant_PhoneNo" Type="varchar" MaxLength="15" />
+    <Property Name="Complainant_Password" Type="nvarchar" MaxLength="20" />
+    <Property Name="Complaint_ID" Type="int" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Of_Birth" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Complaint_Log">
+    <Key>
+      <PropertyRef Name="Serial_No" />
+    </Key>
+    <Property Name="Serial_No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Complaint_ID" Type="int" />
+    <Property Name="Log_Time" Type="time" Precision="7" />
+    <Property Name="Log_Date" Type="date" />
+    <Property Name="Complaint_Loction" Type="nvarchar" MaxLength="256" />
+    <Property Name="Complaint_Status" Type="nvarchar" MaxLength="100" />
+    <Property Name="Employee_ID" Type="int" />
+    <Property Name="Depart_ID" Type="int" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="600" />
+  </EntityType>
+  <EntityType Name="Complaints">
+    <Key>
+      <PropertyRef Name="Complaint_ID" />
+    </Key>
+    <Property Name="Complaint_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Complaint_Time" Type="datetime" />
+    <Property Name="Complaint_Loction" Type="nvarchar" MaxLength="256" />
+    <Property Name="Complaint_Status" Type="nvarchar" MaxLength="100" />
+    <Property Name="Depart_ID" Type="int" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="600" />
+    <Property Name="Complainant_Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="Complaint_Image" Type="varbinary(max)" />
+    <Property Name="Verification_Image" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Department_ID" />
+    </Key>
+    <Property Name="Department_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Department_Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Department_Head" Type="nvarchar" MaxLength="250" />
+    <Property Name="No_Of_Employees" Type="int" />
+    <Property Name="No_Of_Complaints" Type="int" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employee_Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Employee_Phoneno" Type="nvarchar" MaxLength="15" />
+    <Property Name="Employee_Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="Depart_ID" Type="int" />
+    <Property Name="Job" Type="nvarchar" MaxLength="100" />
+    <Property Name="Complaint_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Images">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ImageData" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__Admins__Employee__29572725">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Admins" Type="Self.Admins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Employee_ID" />
+      </Principal>
+      <Dependent Role="Admins">
+        <PropertyRef Name="Employee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Complainn__Compl__2F10007B">
+    <End Role="Complaints" Type="Self.Complaints" Multiplicity="0..1" />
+    <End Role="Complainnats" Type="Self.Complainnats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Complaints">
+        <PropertyRef Name="Complaint_ID" />
+      </Principal>
+      <Dependent Role="Complainnats">
+        <PropertyRef Name="Complaint_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Complaint__Compl__30F848ED">
+    <End Role="Complainnats" Type="Self.Complainnats" Multiplicity="0..1" />
+    <End Role="Complaints" Type="Self.Complaints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Complainnats">
+        <PropertyRef Name="Complainant_Email" />
+      </Principal>
+      <Dependent Role="Complaints">
+        <PropertyRef Name="Complainant_Email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Complaint__Compl__33D4B598">
+    <End Role="Complaints" Type="Self.Complaints" Multiplicity="0..1" />
+    <End Role="Complaint_Log" Type="Self.Complaint_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Complaints">
+        <PropertyRef Name="Complaint_ID" />
+      </Principal>
+      <Dependent Role="Complaint_Log">
+        <PropertyRef Name="Complaint_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Complaint__Depar__2E1BDC42">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="Complaints" Type="Self.Complaints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Department_ID" />
+      </Principal>
+      <Dependent Role="Complaints">
+        <PropertyRef Name="Depart_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Complaint__Depar__35BCFE0A">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="Complaint_Log" Type="Self.Complaint_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Department_ID" />
+      </Principal>
+      <Dependent Role="Complaint_Log">
+        <PropertyRef Name="Depart_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Complaint__Emplo__34C8D9D1">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Complaint_Log" Type="Self.Complaint_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Employee_ID" />
+      </Principal>
+      <Dependent Role="Complaint_Log">
+        <PropertyRef Name="Employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employees__Compl__3C69FB99">
+    <End Role="Complaints" Type="Self.Complaints" Multiplicity="0..1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Complaints">
+        <PropertyRef Name="Complaint_ID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Complaint_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employees__Depar__267ABA7A">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Department_ID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Depart_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SaafCity_Database_2ModelStoreContainer">
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Complainnats" EntityType="Self.Complainnats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Complaint_Log" EntityType="Self.Complaint_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Complaints" EntityType="Self.Complaints" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Admins__Employee__29572725" Association="Self.FK__Admins__Employee__29572725">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Admins" EntitySet="Admins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Complainn__Compl__2F10007B" Association="Self.FK__Complainn__Compl__2F10007B">
+      <End Role="Complaints" EntitySet="Complaints" />
+      <End Role="Complainnats" EntitySet="Complainnats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Complaint__Compl__30F848ED" Association="Self.FK__Complaint__Compl__30F848ED">
+      <End Role="Complainnats" EntitySet="Complainnats" />
+      <End Role="Complaints" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Complaint__Compl__33D4B598" Association="Self.FK__Complaint__Compl__33D4B598">
+      <End Role="Complaints" EntitySet="Complaints" />
+      <End Role="Complaint_Log" EntitySet="Complaint_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Complaint__Depar__2E1BDC42" Association="Self.FK__Complaint__Depar__2E1BDC42">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Complaints" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Complaint__Depar__35BCFE0A" Association="Self.FK__Complaint__Depar__35BCFE0A">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Complaint_Log" EntitySet="Complaint_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Complaint__Emplo__34C8D9D1" Association="Self.FK__Complaint__Emplo__34C8D9D1">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Complaint_Log" EntitySet="Complaint_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employees__Compl__3C69FB99" Association="Self.FK__Employees__Compl__3C69FB99">
+      <End Role="Complaints" EntitySet="Complaints" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employees__Depar__267ABA7A" Association="Self.FK__Employees__Depar__267ABA7A">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

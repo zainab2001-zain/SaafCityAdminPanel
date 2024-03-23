@@ -1,0 +1,51 @@
+﻿@model saafcity_fyp.Models.Department
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/shared_layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Department</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Department_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department_Head)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department_Head)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.No_Of_Employees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.No_Of_Employees)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.No_Of_Complaints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.No_Of_Complaints)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Department_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

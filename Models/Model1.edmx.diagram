@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8198f5d45368497b8771e68387f2bd42" Name="Diagram1">
+        <EntityTypeShape EntityType="SaafCity_Database_2Model.Admin" Width="1.5" PointX="13.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaafCity_Database_2Model.Complainnat" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaafCity_Database_2Model.Complaint_Log" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaafCity_Database_2Model.Complaint" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaafCity_Database_2Model.Department" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaafCity_Database_2Model.Employee" Width="1.5" PointX="11.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaafCity_Database_2Model.Image" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaafCity_Database_2Model.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="SaafCity_Database_2Model.FK__Admins__Employee__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_Database_2Model.FK__Complainn__Compl__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_Database_2Model.FK__Complaint__Compl__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_Database_2Model.FK__Complaint__Compl__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_Database_2Model.FK__Complaint__Depar__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_Database_2Model.FK__Complaint__Emplo__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_Database_2Model.FK__Complaint__Depar__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_Database_2Model.FK__Employees__Compl__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_Database_2Model.FK__Employees__Depar__267ABA7A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

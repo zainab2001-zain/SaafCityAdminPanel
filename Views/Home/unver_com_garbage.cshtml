@@ -1,0 +1,313 @@
+﻿
+@{
+    ViewBag.Title = "unver_com_garbage";
+}
+
+<h2>unver_com_garbage</h2>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90680653-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-90680653-2');
+    </script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Meta -->
+    <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
+    <meta name="author" content="BootstrapDash">
+
+    <title>Saaf City</title>
+
+    <!-- vendor css -->
+    <link href="~/lib/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="~/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="~/lib/typicons.font/typicons.css" rel="stylesheet">
+    <link href="~/lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+
+    <!-- azia CSS -->
+    <link rel="stylesheet" href="~/css/azia.css">
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+
+    <!-- Styles -->
+    <link href="~/lib/rangSlider/ion.rangeSlider.css" rel="stylesheet">
+    <link href="~/lib/rangSlider/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    <!--Themes Jquery Bar Rating-->
+    <link href="~/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="~/lib/themify-icons.css" rel="stylesheet">
+
+    <link href="~/lib/menubar/sidebar.css" rel="stylesheet">
+    <link href="~/lib/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="~/lib/helper.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<style>
+    .search_bar_dashboard {
+        padding-left: 15px;
+    }
+
+
+
+    h6, label {
+        color: black;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    p {
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    main {
+        width: 960px;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 30px 30px 60px 30px;
+        text-align: left;
+    }
+
+    .faqs-grid {
+    }
+
+    .faqs-item {
+        width: 100%;
+        margin: 0 0 20px 0;
+        padding: 0;
+        display: block;
+        background-color: white;
+    }
+
+    .faqs-title {
+        display: flex;
+        position: relative;
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 20px;
+        width: 100%;
+        outline: none;
+        transition: 0.4s;
+    }
+
+        .active,
+        .faqs-title:hover {
+            background-color: rgba(0, 0, 0, 1);
+        }
+
+        .faqs-title:after {
+            content: '\002B';
+            color: #fff;
+            font-weight: normal;
+            float: right;
+            margin-left: auto;
+            font-size: 24px;
+            line-height: 1;
+            padding-left: 20px;
+        }
+
+    .active:after {
+        content: "\2212";
+    }
+
+    .faqs-content {
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .faqs-content-inside {
+        padding: 20px;
+    }
+
+    #complains {
+        margin-left: 16%;
+    }
+
+    #exp {
+        background-color: dimgrey;
+        color: white;
+        font-weight: bold;
+    }
+
+        #exp:hover {
+            background-color: lightgray;
+            color: white;
+            font-weight: bold;
+        }
+</style>
+<body>
+
+   
+    <!-- /# sidebar -->
+    <!--complaints-->
+    <div id="complains">
+        <main>
+            <div class="faqs-grid">
+                <div class="faqs-item ">
+                    <a id="exp" class="faqs-title" href="#custom">Complain: 1</a>
+                    <div class="faqs-content">
+                        <div class="faqs-content-inside" style="text-align:center;">
+                            <img id="img" src="~/images/complaint_1.jpeg" />
+                            <div style="padding-top: 2px ;" class="u-form u-form-1">
+                                <h6>Location : XYZ</h6>
+                                <h6>Time : 00:00</h6>
+                                <h6>Date : mm/dd/yy</h6>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faqs-grid">
+                <div class="faqs-item ">
+                    <a id="exp" class="faqs-title" href="#custom">Complain: 2</a>
+                    <div class="faqs-content">
+                        <div class="faqs-content-inside" style="text-align:center;">
+                            <img id="img" src="~/images/complaint_1.jpeg" />
+                            <div style="padding-top: 2px ;" class="u-form u-form-1">
+                                <h6>Location : XYZ</h6>
+                                <h6>Time : 00:00</h6>
+                                <h6>Date : mm/dd/yy</h6>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faqs-grid">
+                <div class="faqs-item ">
+                    <a id="exp" class="faqs-title" href="#custom">Complain: 3</a>
+                    <div class="faqs-content">
+                        <div class="faqs-content-inside" style="text-align:center;">
+                            <img id="img" src="~/images/complaint_1.jpeg" />
+                            <div style="padding-top: 2px ;" class="u-form u-form-1">
+                                <h6>Location : XYZ</h6>
+                                <h6>Time : 00:00</h6>
+                                <h6>Date : mm/dd/yy</h6>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faqs-grid">
+                <div class="faqs-item ">
+                    <a id="exp" class="faqs-title" href="#custom">Complain: 4</a>
+                    <div class="faqs-content">
+                        <div class="faqs-content-inside" style="text-align:center;">
+                            <img id="img" src="~/images/complaint_1.jpeg" />
+                            <div style="padding-top: 2px ;" class="u-form u-form-1">
+                                <h6>Location : XYZ</h6>
+                                <h6>Time : 00:00</h6>
+                                <h6>Date : mm/dd/yy</h6>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faqs-grid">
+                <div class="faqs-item ">
+                    <a id="exp" class="faqs-title" href="#custom">Complain: 5</a>
+                    <div class="faqs-content">
+                        <div class="faqs-content-inside" style="text-align:center;">
+                            <img id="img" src="~/images/complaint_1.jpeg" />
+                            <div style="padding-top: 2px ;" class="u-form u-form-1">
+                                <h6>Location : XYZ</h6>
+                                <h6>Time : 00:00</h6>
+                                <h6>Date : mm/dd/yy</h6>
+                                <h6>Driver-Name : ABC</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faqs-grid">
+                <div class="faqs-item ">
+                    <a id="exp" class="faqs-title" href="#custom">Complain: 6</a>
+                    <div class="faqs-content">
+                        <div class="faqs-content-inside" style="text-align:center;">
+                            <img id="img" src="~/images/complaint_1.jpeg" />
+                            <div style="padding-top: 2px ;" class="u-form u-form-1">
+                                <h6>Location : XYZ</h6>
+                                <h6>Time : 00:00</h6>
+                                <h6>Date : mm/dd/yy</h6>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+
+
+
+
+</body>
+
+<script>
+    function clicked() {
+        if (img == 1) {
+            document.getElementById("img").style.display = "inline"
+            return img = 0;
+        }
+        else {
+            document.getElementById("img").style.display = "none"
+            return img = 1;
+
+        }
+
+    }
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+    var acc = document.getElementsByClassName('faqs-title');
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener('click', function () {
+            this.classList.toggle('active');
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+            }
+        });
+    }
+</script>

@@ -1,0 +1,277 @@
+﻿
+@{ ViewBag.Title = "homepage_Sewage"; }
+@{ Layout = "~/Views/Shared/shared_layout.cshtml"; }
+@model saafcity_fyp.Models.Department
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Garbage Department</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../Master Page layout/plugins/fontawesome-free/css/all.min.css" />
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../Master Page layout/dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <style>
+        .year-stats {
+            white-space: nowrap;
+            max-height: 170px;
+            overflow: hidden;
+        }
+
+            .year-stats:hover {
+                overflow-x: auto;
+            }
+
+        /* SCROLL BAR STYLE (ONLY WORKS IN CHROME) */
+        /* Width */
+
+        .month-group {
+            cursor: pointer;
+            max-width: 400px;
+            height: 110px;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .bar {
+            background-color: #abafc6;
+            width: 20px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .month-group:hover .bar,
+        .selected .bar {
+            background: #5397d6;
+        }
+
+        .month-group:hover p,
+        .selected p {
+            color: #fff;
+        }
+
+        .h-25 {
+            height: 25%;
+        }
+
+        .h-50 {
+            height: 50%;
+        }
+
+        .h-75 {
+            height: 75%;
+        }
+
+        .h-100 {
+            height: 100%;
+        }
+
+        .stats-info {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            position: relative;
+        }
+
+        .graph-container {
+            position: relative;
+        }
+
+        .percent {
+            display: block;
+            width: 120px;
+            height: 120px;
+        }
+
+        .circle {
+            stroke: #915db1;
+            fill: none;
+            stroke-width: 3;
+        }
+
+            .circle:nth-child(2) {
+                stroke: #e59f3c;
+            }
+
+            .circle:nth-child(3) {
+                stroke: #5397d6;
+            }
+
+            .circle:nth-child(4) {
+                stroke: #4cc790;
+            }
+
+        .graph-container p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            color: #000000;
+            text-align: center;
+        }
+
+        .info p {
+            margin-bottom: 10px;
+        }
+
+        .info span {
+            color: #000000;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1></h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="Dashboard">Home</a></li>
+                            <li class="breadcrumb-item ">Dashboard</li>
+                            <li class="breadcrumb-item active">Sewage Department</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Complaint Section</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <i class="fas fa-times"></i>
+                        
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Small boxes (Stat box) -->
+                    <div class="row">
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <p ID="lblvendors" style="font-weight: bold; font-size: 30px;">@ViewBag.ComplaintsCount</p>
+                                    <p style="margin-top: 2%;">Total Complaints</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-book" aria-hidden="true"></i>
+                                </div>
+                                <a href="Total_complaints_sewage" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <p ID="lblcompanies" style="font-weight: bold; font-size: 30px;">@ViewBag.CompletedComplaints</p>
+                                    <p style="margin-top: 4%;">Completed Complaints</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                                <a href="done_comsewage" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <p ID="lblproducts" style="font-weight: bold; font-size: 30px;"> @ViewBag.InProgressComplaints</p>
+                                    <p style="font-weight: bold; font-size: 15px;">In-Progress </p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-spinner" aria-hidden="true"></i>
+                                </div>
+                                <a href="in_prog_sewage" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-info">
+                                <div class="inner" style="background: #4F4846;">
+                                    <p ID="lbltotalpurchase" style="font-weight: bold; font-size: 30px;">@ViewBag.VerifiedComplaints</p>
+                                    <p>Verified Complaints</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                </div>
+                                <a href="var_com_sewage" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        
+                        <!-- ./col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.card-body -->
+        </section>
+
+        <section class="content">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Department Section</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Small boxes (Stat box) -->
+                    <div class="row">
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <p ID="lblvendors" style="font-weight: bold; font-size: 30px;">@ViewBag.NoOfEmployees</p>
+                                    <p style="margin-top: 2%;">Employees</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-book" aria-hidden="true"></i>
+                                </div>
+                                <a href="@Url.Action("SewageEmployees", "Employees")" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
+
+
+
+                        <!-- ./col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.card-body -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- /.content-wrapper -->
+
+</body>
+</html>
