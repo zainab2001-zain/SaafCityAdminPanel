@@ -1,4 +1,4 @@
-# SaafCityAdminPanel
+
 # Saafcity Admin Panel
 
 Welcome to the Saafcity Admin Panel repository! This admin panel is designed to manage and monitor the complaint system for garbage and sewage complaints in Saafcity. 
